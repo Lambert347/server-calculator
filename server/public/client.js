@@ -36,6 +36,7 @@ function readyOn() {
         event.preventDefault();
     })
     $('#submit').on('click', numberOperation)
+    $('#clear').on('click', clearInputs)
     getNumbers();
 }
 
@@ -84,13 +85,7 @@ function getNumbers(){
     console.log('After making server request');
 }
 
-// function getSum(){
-//     $.ajax({
-//         method: 'GET',
-//         url: '/numbers',
-//     })
-//         .then(function(response){
-//             console.log('Getting sum from server', response);
-//             for (number of response)
-//         })
-// }
+function clearInputs(){
+    $('#number1').val('');
+    $('#number2').val('');
+}
