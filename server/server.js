@@ -5,7 +5,7 @@ const port = 5000;
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
-let sum = 0;
+let solution = 0;
 const numbers = [];
 
 app.get('/numbers', (req, res) => {
@@ -19,20 +19,20 @@ app.post('/numbers', (req, res) => {
     
     res.sendStatus(201);
     if (newNumber.operation === "add"){
-        sum = Number(newNumber.number1) + Number(newNumber.number2);
-        newNumber.sum = sum;
+        solution = Number(newNumber.number1) + Number(newNumber.number2);
+        newNumber.solution = solution;
     }
     else if (newNumber.operation === "subtract"){
-        sum = Number(newNumber.number1) - Number(newNumber.number2);
-        newNumber.sum = sum;
+        solution = Number(newNumber.number1) - Number(newNumber.number2);
+        newNumber.solution = solution;
     }
     else if (newNumber.operation === "multiply"){
-        sum = Number(newNumber.number1) * Number(newNumber.number2);
-        newNumber.sum = sum;
+        solution = Number(newNumber.number1) * Number(newNumber.number2);
+        newNumber.solution = solution;
     }
     else if (newNumber.operation === "divide"){
-        sum = Number(newNumber.number1) / Number(newNumber.number2);
-        newNumber.sum = sum;
+        solution = Number(newNumber.number1) / Number(newNumber.number2);
+        newNumber.solution = solution;
     }
     numbers.push(newNumber);
 })

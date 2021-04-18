@@ -71,7 +71,7 @@ function getNumbers(){
                         <p>First Number: ${number.number1}</p>
                         <p>Second Number: ${number.number2}</p>
                         <p>Operation: ${number.operation}</p>
-                        <Sum: 
+                        <p>Solution: ${number.solution}</p>
                     </div>
                 `);
             }
@@ -83,3 +83,14 @@ function getNumbers(){
         })
     console.log('After making server request');
 }
+
+// function getSum(){
+//     $.ajax({
+//         method: 'GET',
+//         url: '/numbers',
+//     })
+//         .then(function(response){
+//             console.log('Getting sum from server', response);
+//             for (number of response)
+//         })
+// }
