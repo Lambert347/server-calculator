@@ -1,36 +1,39 @@
 
 console.log('JAVAJAVAJAVA');
+//Created global object to be where the operation and the number inputs go into to be sent to the server.
+//the operation is initally set to null for data-checking purposes that is explained later. 
+//operation is updated depending on what button is pressed. 
 let numObject = {
     operation: null
 }
-
+//ready the document for manipulation 
 $(document).ready(readyOn);
 
+//function to ready the document
 function readyOn() {
     console.log('JQ');
+    //when the addition button is clicked on the dom, this function replaces the null in the numObject for operation with +
+
     $('#addition').on('click', function(event){
         numObject.operation = "+";
         event.preventDefault();
         console.log(numObject);
-        return numObject;
+        
     })
     $('#subtraction').on('click', function(event){
         numObject.operation = "-";
         event.preventDefault();
         console.log(numObject);
-        return numObject;
     })
     $('#multiplication').on('click', function(event){
         numObject.operation = "*";
         event.preventDefault();
         console.log(numObject);
-        return numObject;
     })
     $('#division').on('click', function(event){
         numObject.operation = "/";
         event.preventDefault();
         console.log(numObject);
-        return numObject;
     })
     $('#submit').on('click', function(event){
         //
