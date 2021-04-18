@@ -69,8 +69,7 @@ function getNumbers(){
             for (let number of response){
                 $('#numberHistory').append(`
                     <div class="numbers">
-                        ${number.number1} + ${number.operation} + ${number.number2} + '=' 
-                        + ${number.solution}
+                        ${number.number1} ${number.operation} ${number.number2} = ${number.solution}
                     </div>
                 `);
             }

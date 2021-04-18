@@ -18,19 +18,19 @@ app.post('/numbers', (req, res) => {
     console.log('got a new number package', newNumber);
     
     res.sendStatus(201);
-    if (newNumber.operation === "add"){
+    if (newNumber.operation === "+"){
         solution = Number(newNumber.number1) + Number(newNumber.number2);
         newNumber.solution = solution;
     }
-    else if (newNumber.operation === "subtract"){
+    else if (newNumber.operation === "-"){
         solution = Number(newNumber.number1) - Number(newNumber.number2);
         newNumber.solution = solution;
     }
-    else if (newNumber.operation === "multiply"){
+    else if (newNumber.operation === "*"){
         solution = Number(newNumber.number1) * Number(newNumber.number2);
         newNumber.solution = solution;
     }
-    else if (newNumber.operation === "divide"){
+    else if (newNumber.operation === "/"){
         solution = Number(newNumber.number1) / Number(newNumber.number2);
         newNumber.solution = solution;
     }
