@@ -42,8 +42,6 @@ app.post('/numbers', (req, res) => {
     numbers.push(newNumber);
 })
 
-
-
 app.listen(port, () => {
     console.log(`Listening on port ${port}....`);
 })

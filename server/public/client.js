@@ -33,6 +33,7 @@ function readyOn() {
         return numObject;
     })
     $('#submit').on('click', function(event){
+        //
         if (numObject.operation === null){
             alert('Please choose an operation')
             event.preventDefault();
