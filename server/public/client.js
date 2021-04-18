@@ -9,25 +9,25 @@ $(document).ready(readyOn);
 function readyOn() {
     console.log('JQ');
     $('#addition').on('click', function(event){
-        numObject.operation = "add";
+        numObject.operation = "+";
         event.preventDefault();
         console.log(numObject);
         return numObject;
     })
     $('#subtraction').on('click', function(event){
-        numObject.operation = "subtract";
+        numObject.operation = "-";
         event.preventDefault();
         console.log(numObject);
         return numObject;
     })
     $('#multiplication').on('click', function(event){
-        numObject.operation = "multiply";
+        numObject.operation = "*";
         event.preventDefault();
         console.log(numObject);
         return numObject;
     })
     $('#division').on('click', function(event){
-        numObject.operation = "divide";
+        numObject.operation = "/";
         event.preventDefault();
         console.log(numObject);
         return numObject;
@@ -69,10 +69,8 @@ function getNumbers(){
             for (let number of response){
                 $('#numberHistory').append(`
                     <div class="numbers">
-                        <p>First Number: ${number.number1}</p>
-                        <p>Second Number: ${number.number2}</p>
-                        <p>Operation: ${number.operation}</p>
-                        <p>Solution: ${number.solution}</p>
+                        ${number.number1} + ${number.operation} + ${number.number2} + '=' 
+                        + ${number.solution}
                     </div>
                 `);
             }
