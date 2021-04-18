@@ -33,10 +33,17 @@ function readyOn() {
         return numObject;
     })
     $('#submit').on('click', function(event){
-        event.preventDefault();
+        if (numObject.operation === null){
+            alert('Please choose an operation')
+            return 1;
+        }
+        numberOperation();
+        clearInputs();
     })
-    $('#submit').on('click', numberOperation)
-    $('#clear').on('click', clearInputs)
+    $('#clear').on('click', function(event){
+        event.preventDefault();
+        clearInputs();
+    })
     getNumbers();
 }
 
@@ -81,9 +88,31 @@ function getNumbers(){
             alert('Sorry, could not get number history. Try again later');
         })
     console.log('After making server request');
+    getSum();
 }
 
 function clearInputs(){
     $('#number1').val('');
     $('#number2').val('');
+}
+
+function getSum(){
+    $.ajax({
+        method: 'GET',
+        url: '/numbers',
+    })
+        .then (function(response){
+            console.log('Response from the server', response);
+            $('#recentSum').empty();
+            console.log('Adding just recent sum to DOM');
+            for (let number of response){
+                $('#recentSum').empty();
+                $('#recentSum').append(`
+                    <div class="sum">
+                        <h2>${number.solution}</h2>
+                    </div>
+                `);
+            }
+
+        })
 }
