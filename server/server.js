@@ -16,10 +16,13 @@ app.get('/numbers', (req, res) => {
 app.post('/numbers', (req, res) => {
     let newNumber = req.body;
     console.log('got a new number package', newNumber);
-    numbers.push(newNumber);
-    res.sendStatus(201);
-
     
+    res.sendStatus(201);
+    if (newNumber.operation === "add"){
+        sum = Number(newNumber.number1) + Number(newNumber.number2);
+        newNumber.sum = sum;
+    }
+    numbers.push(newNumber);
 })
 
 app.listen(port, () => {
