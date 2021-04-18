@@ -71,6 +71,8 @@ function getNumbers(){
                     <div class="numbers">
                         <p>First Number: ${numObject.number1}</p>
                         <p>Second Number: ${numObject.number2}</p>
+                        <p>Operation: ${numObject.operation}</p>
+                        <Sum: 
                     </div>
                 `)
             }

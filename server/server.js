@@ -22,6 +22,18 @@ app.post('/numbers', (req, res) => {
         sum = Number(newNumber.number1) + Number(newNumber.number2);
         newNumber.sum = sum;
     }
+    else if (newNumber.operation === "subtract"){
+        sum = Number(newNumber.number1) - Number(newNumber.number2);
+        newNumber.sum = sum;
+    }
+    else if (newNumber.operation === "multiply"){
+        sum = Number(newNumber.number1) * Number(newNumber.number2);
+        newNumber.sum = sum;
+    }
+    else if (newNumber.operation === "divide"){
+        sum = Number(newNumber.number1) / Number(newNumber.number2);
+        newNumber.sum = sum;
+    }
     numbers.push(newNumber);
 })
 
