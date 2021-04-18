@@ -6,7 +6,12 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
 let solution = 0;
-const numbers = [];
+let numbers = [];
+
+app.delete('/numbers', (req, res) => {
+    console.log('Clearing number history')
+    numbers = [];
+})
 
 app.get('/numbers', (req, res) => {
     res.send(numbers);
@@ -36,6 +41,8 @@ app.post('/numbers', (req, res) => {
     }
     numbers.push(newNumber);
 })
+
+
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}....`);

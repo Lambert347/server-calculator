@@ -1,6 +1,8 @@
 
 console.log('JAVAJAVAJAVA');
 let numObject = {
+    number1: null,
+    number2: null,
     operation: null
 }
 
@@ -37,12 +39,19 @@ function readyOn() {
             alert('Please choose an operation')
             return 1;
         }
+        if ($('#number1').val() === '' || $('#number2').val() === ''){
+            alert('Please Check number inputs and try again')
+            return 1;
+        }
         numberOperation();
         clearInputs();
     })
     $('#clear').on('click', function(event){
         event.preventDefault();
         clearInputs();
+    })
+    $('#delete').on('click', function(event){
+        deleteNumbers();
     })
     getNumbers();
 }
@@ -114,5 +123,20 @@ function getSum(){
                 `);
             }
 
+        })
+}
+//Stretch goals: delete data on request
+function deleteNumbers(){
+    $.ajax({
+        method: 'DELETE',
+        url: '/numbers',
+    })
+        .then(function(response){
+            console.log('Clearing Data');
+            
+        })
+        .catch(function(error){
+            console.log('Error from the server', error)
+            alert('Could not clear history, try again later');
         })
 }
