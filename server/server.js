@@ -14,6 +14,11 @@ app.get('/numbers', (req, res) => {
 })
 
 app.post('/numbers', (req, res) => {
+    let newNumber = req.body;
+    console.log('got a new number package', newNumber);
+    numbers.push(newNumber);
+    res.sendStatus(201);
+
     
 })
 
