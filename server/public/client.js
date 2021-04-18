@@ -1,14 +1,14 @@
 
 console.log('JAVAJAVAJAVA');
-
 let numObject = {
-        operation: null
-    }
+    operation: null
+}
 
 $(document).ready(readyOn);
 
 function readyOn() {
     console.log('JQ');
+    
 
     $('#addition').on('click', function(event){
         numObject.operation = "add";
@@ -34,6 +34,14 @@ function readyOn() {
         console.log(numObject);
         return numObject;
     })
+    $('#submit').on('click', function(event){
+        event.preventDefault();
+    })
+    $('#submit').on('click', numberOperation);
+}
 
-
+function numberOperation() {
+    numObject.number1 = $('#number1').val();
+    numObject.number2 = $('#number2').val();
+    console.log(numObject);
 }
