@@ -1,8 +1,6 @@
 
 console.log('JAVAJAVAJAVA');
 let numObject = {
-    number1: null,
-    number2: null,
     operation: null
 }
 
@@ -37,10 +35,12 @@ function readyOn() {
     $('#submit').on('click', function(event){
         if (numObject.operation === null){
             alert('Please choose an operation')
+            event.preventDefault();
             return 1;
         }
         if ($('#number1').val() === '' || $('#number2').val() === ''){
             alert('Please Check number inputs and try again')
+            event.preventDefault();
             return 1;
         }
         numberOperation();
