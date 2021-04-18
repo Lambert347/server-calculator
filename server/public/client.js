@@ -8,8 +8,6 @@ $(document).ready(readyOn);
 
 function readyOn() {
     console.log('JQ');
-    
-
     $('#addition').on('click', function(event){
         numObject.operation = "add";
         event.preventDefault();
@@ -37,7 +35,8 @@ function readyOn() {
     $('#submit').on('click', function(event){
         event.preventDefault();
     })
-    $('#submit').on('click', numberOperation);
+    $('#submit').on('click', numberOperation)
+    getNumbers();
 }
 
 function numberOperation() {
@@ -65,16 +64,16 @@ function getNumbers(){
         .then (function(response){
             console.log('Response from the server', response);
             $('#numberHistory').empty();
-            console.log('Adding numbers to the history');
+            console.log('Adding numbers to the DOM');
             for (let number of response){
                 $('#numberHistory').append(`
                     <div class="numbers">
-                        <p>First Number: ${numObject.number1}</p>
-                        <p>Second Number: ${numObject.number2}</p>
-                        <p>Operation: ${numObject.operation}</p>
+                        <p>First Number: ${number.number1}</p>
+                        <p>Second Number: ${number.number2}</p>
+                        <p>Operation: ${number.operation}</p>
                         <Sum: 
                     </div>
-                `)
+                `);
             }
 
         })
